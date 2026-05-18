@@ -1,0 +1,25 @@
+:root {
+  --color-bg-primary: #3F437D;
+  --color-bg-secondary: #5559A3;
+  --color-card: #6869B4;
+  --color-overlay: #232748;
+  --color-electric-blue: #3E7BFF;
+  --color-soft-purple: #8B7CFF;
+  --color-text-primary: #F5F5F7;
+  --color-text-secondary: #C7C9E6;
+  --color-accent-gradient: linear-gradient(135deg, #3E7BFF, #8B7CFF);
+  --border-radius-card: 16px;
+  --shadow-card: 0 8px 32px rgba(35, 39, 72, 0.5);
+}
+
+[data-theme='light'] {
+  --color-bg-primary: #F5F5F7;
+  --color-bg-secondary: #EAEAEE;
+  --color-card: #FFFFFF;
+  --color-overlay: rgba(255, 255, 255, 0.8);
+  --color-electric-blue: #3E7BFF;
+  --color-soft-purple: #8B7CFF;
+  --color-text-primary: #232748;
+  --color-text-secondary: #3F437D;
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
