@@ -61,3 +61,76 @@ a {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Responsive Mejorado */
+@media (max-width: 992px) {
+  .display-2 {
+    font-size: clamp(3rem, 6vw, 4rem);
+  }
+  .lead {
+    font-size: 1rem;
+  }
+  .carousel-item img {
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .display-2 {
+    font-size: 2.5rem;
+  }
+  .lead {
+    font-size: 0.95rem;
+  }
+  .carousel-item img {
+    min-height: 100vh;
+  }
+  .btn-lg {
+    padding: 0.8rem 1.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .display-2 {
+    font-size: 2rem;
+  }
+  .lead {
+    font-size: 0.9rem;
+  }
+  .hero-text {
+    padding: 1.5rem 1.3rem;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-socials {
+    justify-content: center;
+    width: 100%;
+  }
+  .about-avatar {
+    width: 260px !important;
+    height: 260px !important;
+  }
+}
+
+.hero-section {
+  min-height: 100vh;
+}
+
+.hero-text {
+  background: rgba(18, 23, 57, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-actions a {
+  min-width: 180px;
+}
+
+.hero-socials a {
+  min-width: 46px;
+  min-height: 46px;
+}
+
+.about-avatar {
+  max-width: 100%;
+}

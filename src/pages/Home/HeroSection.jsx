@@ -11,7 +11,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="position-relative vh-100 overflow-hidden">
+    <section id="home" className="position-relative hero-section overflow-hidden">
       {/* Carrusel */}
       <div id="heroCarousel" className="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-pause="false">
         <div className="carousel-inner h-100">
@@ -27,35 +27,37 @@ const HeroSection = () => {
       {/* Contenido superpuesto */}
       <div className="position-absolute top-50 start-0 translate-middle-y w-100 z-1">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center">
             <div className="col-lg-8 col-xl-7 text-white animate-fade-up">
-              <h5 className="text-uppercase tracking-widest mb-3" style={{ color: 'var(--color-soft-purple)', letterSpacing: '3px' }}>
-                Full Stack JavaScript Developer
-              </h5>
-              <h1 className="display-2 fw-bolder mb-4" style={{ fontFamily: 'Outfit' }}>
-                Doris Valverde
-              </h1>
-              <p className="lead mb-5 fs-4 fw-light text-light" style={{ opacity: 0.9 }}>
-                Especializada en el stack MERN. Construyo aplicaciones web SPA con arquitectura de componentes, REST APIs y bases de datos.
-              </p>
-              
-              <div className="d-flex flex-wrap gap-3 mb-5">
-                <a href="#projects" className="text-decoration-none">
-                  <Button label="Ver Proyectos" variant="primary" size="lg" className="rounded-pill px-5" />
-                </a>
-                <a href="#contact" className="text-decoration-none">
-                  <Button label="Contáctame" variant="outline" size="lg" className="rounded-pill px-5 text-white border-light hover-bg-light" />
-                </a>
-              </div>
+              <div className="hero-text glass p-4 p-lg-5 rounded-4 shadow-sm">
+                <h5 className="text-uppercase tracking-widest mb-3" style={{ color: 'var(--color-soft-purple)', letterSpacing: '3px' }}>
+                  Curriculum digital & portafolio web
+                </h5>
+                <h1 className="display-2 fw-bolder mb-4" style={{ fontFamily: 'Outfit' }}>
+                  Doris Valverde
+                </h1>
+                <p className="lead mb-5 fs-4 fw-light text-light" style={{ opacity: 0.95 }}>
+                  Soy desarrolladora Full Stack MERN. Diseño y construyo aplicaciones web responsivas para móvil, tablet y escritorio.
+                </p>
+                
+                <div className="d-flex flex-wrap gap-3 mb-5 hero-actions">
+                  <a href="#projects" className="text-decoration-none w-auto">
+                    <Button label="Ver Proyectos" variant="primary" size="lg" className="rounded-pill px-4" />
+                  </a>
+                  <a href="#contact" className="text-decoration-none w-auto">
+                    <Button label="Contáctame" variant="outline" size="lg" className="rounded-pill px-4 text-white border-light hover-bg-light" />
+                  </a>
+                </div>
 
-              <div className="d-flex align-items-center gap-4">
-                <span className="text-uppercase small tracking-widest">Sígueme en:</span>
-                <a href="https://www.linkedin.com/in/dorisvalverde/" target="_blank" rel="noreferrer" className="text-white hover-electric-blue transition-all">
-                  <FaLinkedin size={24} />
-                </a>
-                <a href="https://github.com/Andreadavj" target="_blank" rel="noreferrer" className="text-white hover-electric-blue transition-all">
-                  <FaGithub size={24} />
-                </a>
+                <div className="d-flex flex-wrap align-items-center gap-3 hero-socials">
+                  <span className="text-uppercase small tracking-widest">Sígueme en:</span>
+                  <a href="https://www.linkedin.com/in/dorisvalverde/" target="_blank" rel="noreferrer" className="text-white hover-electric-blue transition-all">
+                    <FaLinkedin size={24} />
+                  </a>
+                  <a href="https://github.com/Andreadavj" target="_blank" rel="noreferrer" className="text-white hover-electric-blue transition-all">
+                    <FaGithub size={24} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
 import SectionTitle from '../../components/common/SectionTitle';
 import Card from '../../components/common/Card';
 import Button from '../../components/common/Button';
@@ -48,7 +48,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h6 className="mb-1 fw-bold">Email</h6>
-                  <a href="mailto:andrea.avj03@gmail.com" className="text-decoration-none" style={{ color: 'var(--color-text-secondary)' }}>andrea.avj03@gmail.com</a>
+                  <a href="mailto:dorisvalverde.dev@gmail.com" className="text-decoration-none" style={{ color: 'var(--color-text-secondary)' }}>dorisvalverde.dev@gmail.com</a>
                 </div>
               </div>
 

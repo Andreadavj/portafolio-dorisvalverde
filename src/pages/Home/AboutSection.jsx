@@ -16,16 +16,9 @@ const AboutSection = () => {
             <Avatar 
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&w=600&q=80" 
               alt="Doris Valverde" 
-              size={320}
-              className="mx-auto mx-md-0"
+              size={280}
+              className="mx-auto mx-md-0 about-avatar"
             />
-            {/* Badges Flotantes */}
-            <div className="position-absolute top-0 start-0 translate-middle-y ms-4 mt-4 d-none d-lg-block">
-              <div className="glass px-4 py-2 rounded-pill shadow-sm d-flex align-items-center gap-2">
-                <span className="fs-3 fw-bold text-gradient">5+</span>
-                <span className="small lh-sm" style={{ color: 'var(--color-text-primary)' }}>Años de<br/>Experiencia</span>
-              </div>
-            </div>
           </div>
 
           {/* Columna Derecha: Texto */}
@@ -38,12 +31,12 @@ const AboutSection = () => {
             </p>
             
             <p className="mb-4" style={{ color: 'var(--color-text-secondary)' }}>
-              Aporto 5 años de experiencia previa en gestión de proyectos. He liderado equipos como Scrum Master y Product Owner, lo que me permite entender no solo el código, sino todo el ciclo de vida del producto y las necesidades del negocio.
+              Tengo experiencia liderando equipos en entornos ágiles, lo que me permite entender no solo el código, sino todo el ciclo de vida del producto y las necesidades del negocio.
             </p>
 
             <div className="row g-3 mb-5">
               {[
-                "MERN Stack", "Scrum Master", "5 años gestión proyectos", "Santiago, Chile"
+                "MERN Stack", "Scrum Master", "Gestión de proyectos", "Santiago, Chile"
               ].map((item, idx) => (
                 <div className="col-sm-6 d-flex align-items-center gap-2" key={idx}>
                   <FaCheckCircle style={{ color: 'var(--color-electric-blue)' }} />
