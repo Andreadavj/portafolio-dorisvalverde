@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { FaCheckCircle, FaDownload, FaGithub, FaLinkedin } from 'react-icons/fa';
 import Avatar from '../../components/common/Avatar';
 import Button from '../../components/common/Button';
+import dorisAvatar from '../../assets/doris_avatar.jpg';
 
 const AboutSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -14,7 +15,7 @@ const AboutSection = () => {
           {/* Columna Izquierda: Imagen */}
           <div className={`col-md-5 position-relative fade-right ${inView ? 'visible' : ''}`}>
             <Avatar 
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&w=600&q=80" 
+              src={dorisAvatar} 
               alt="Doris Valverde" 
               size={280}
               className="mx-auto mx-md-0 about-avatar"
