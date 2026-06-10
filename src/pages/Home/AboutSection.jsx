@@ -4,6 +4,7 @@ import { FaCheckCircle, FaDownload, FaGithub, FaLinkedin } from 'react-icons/fa'
 import Avatar from '../../components/common/Avatar';
 import Button from '../../components/common/Button';
 import dorisAvatar from '../../assets/doris_avatar.jpg';
+import cvPdf from '../../assets/CV_Doris_Valverde_FullStack_v5.pdf';
 
 const AboutSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -47,7 +48,7 @@ const AboutSection = () => {
             </div>
 
             <div className="d-flex flex-wrap align-items-center gap-3">
-              <a href="#" className="text-decoration-none">
+              <a href={cvPdf} download="CV_Doris_Valverde_FullStack_v5.pdf" className="text-decoration-none">
                 <Button label="Descargar CV" variant="outline" icon={<FaDownload />} className="rounded-pill border-2" />
               </a>
               <div className="d-flex gap-2 ms-sm-3">

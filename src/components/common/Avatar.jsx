@@ -6,7 +6,7 @@ const Avatar = ({ src, alt, size = 250, className = '' }) => {
       <div className="avatar-wrapper rounded-circle p-1">
         <div className="avatar-inner rounded-circle overflow-hidden w-100 h-100">
           <img 
-            src={src || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&w=500&q=80"} 
+            src={src || "../assets/css/avatar"} 
             alt={alt || "Avatar"} 
             className="w-100 h-100 object-fit-cover"
           />
