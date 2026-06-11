@@ -3,40 +3,53 @@ import SectionTitle from '../../components/common/SectionTitle';
 import ProjectCard from '../../components/spaces/ProjectCard';
 import { useInView } from 'react-intersection-observer';
 
+// Importa las imágenes aquí (asegúrate de guardar las imágenes en la carpeta src/assets con estos nombres)
+import jaffaImg from '../../assets/jaffa.png';
+import virtualPetImg from '../../assets/pet.png';
+import spacexImg from '../../assets/spacex.png';
+// Imagen por defecto para el backend si no tienes una específica
+const defaultBackendImg = "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&w=800&q=80";
+
 const ProjectsSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const projects = [
     {
-      title: "Sistema de Gestión de Reservas – Coworking",
-      description: "Plataforma para administrar reservas en un espacio de coworking, permitiendo agendamiento y gestión de disponibilidad.",
-      stack: ["HTML5", "CSS3", "JS", "Bootstrap", "Node.js", "Express", "MongoDB"],
-      githubUrl: "https://github.com/Andreadavj",
-      liveUrl: "https://github.com/Andreadavj",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&w=800&q=80",
+      title: "Virtual Pet",
+      description: "Aplicación Full Stack para la gestión de mascotas virtuales. Permite crear, editar, visualizar y administrar mascotas mediante una interfaz interactiva desarrollada con JavaScript puro y una API REST.",
+      stack: ["JavaScript", "HTML/CSS", "API REST", "Node.js"],
+      githubUrl: "https://github.com/Andreadavj/virtual-pet-manager",
+      liveUrl: "https://andreadavj.github.io/virtual-pet-manager/",
+      image: virtualPetImg,
       status: "completed"
     },
     {
-      title: "Single Page Application con React",
-      description: "Aplicación SPA interactiva construida con React y consumiendo APIs externas para mostrar datos en tiempo real.",
-      stack: ["React", "JS ES6+", "CSS3", "REST APIs", "React Hooks"],
-      githubUrl: "https://github.com/Andreadavj",
-      liveUrl: "https://github.com/Andreadavj",
-      image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&w=800&q=80",
+      title: "SpaceX Tracker",
+      description: "Single Page Application desarrollada en React que consume la API pública de SpaceX para visualizar, filtrar y explorar lanzamientos espaciales en tiempo real.",
+      stack: ["React", "API REST", "SPA"],
+      githubUrl: "https://github.com/Andreadavj/spacex-tracker",
+      liveUrl: "https://spacex-tracker-eight.vercel.app/",
+      image: spacexImg,
       status: "completed"
     },
     {
-      title: "Backend API Like Me & JWT Auth",
-      description: "API REST robusta con autenticación JWT, manejo de usuarios y posts, utilizando múltiples bases de datos.",
-      stack: ["Node.js", "Express", "PostgreSQL", "MongoDB", "JWT"],
-      githubUrl: "https://github.com/Andreadavj",
+      title: "Backend LikeMel",
+      description: "API REST desarrollada con Express y PostgreSQL para gestionar publicaciones y reacciones mediante operaciones CRUD completas.",
+      stack: ["Node.js", "Express", "PostgreSQL"],
+      githubUrl: "https://github.com/Andreadavj/backend-LikeMel",
       liveUrl: "",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&w=800&q=80",
+      image: defaultBackendImg,
       status: "completed"
     },
-    { title: "Proyecto en Desarrollo", status: "pending", stack: [] },
-    { title: "Proyecto en Desarrollo", status: "pending", stack: [] },
-    { title: "Proyecto en Desarrollo", status: "pending", stack: [] }
+    {
+      title: "JAFFA Cowork",
+      description: "Aplicación Full Stack desarrollada con arquitectura MERN para la administración de espacios de coworking. Permite gestionar usuarios, reservas, pagos, facturación y soporte mediante una plataforma moderna y escalable.",
+      stack: ["MongoDB", "Express", "React", "Node.js"],
+      githubUrl: "https://github.com/Andreadavj/Sistema-de-gestion-de-co-working",
+      liveUrl: "https://sistema-de-gestion-de-co-working.vercel.app/",
+      image: jaffaImg,
+      status: "completed"
+    }
   ];
 
   return (

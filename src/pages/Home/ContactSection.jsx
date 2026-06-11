@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaCheckCircle, FaSpinner, FaExclamationCircle } from 'react-icons/fa';
 import SectionTitle from '../../components/common/SectionTitle';
 import Card from '../../components/common/Card';
 import Button from '../../components/common/Button';
@@ -9,16 +9,52 @@ const ContactSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [showAlert, setShowAlert] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [alertType, setAlertType] = useState('success');
+  const [alertMessage, setAlertMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowAlert(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setShowAlert(false), 5000);
+    setLoading(true);
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/dorisvalverde.dev@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'Mensaje de Portafolio',
+          message: formData.message,
+          _subject: `Nuevo mensaje de portafolio de ${formData.name}`,
+        })
+      });
+      
+      const data = await response.json();
+      if (response.ok && (data.success === "true" || data.success === true)) {
+        setAlertType('success');
+        setAlertMessage('¡Mensaje enviado con éxito! Te responderé lo antes posible. (Nota: Si es el primer mensaje, revisa tu correo para activar el formulario).');
+        setShowAlert(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setAlertType('danger');
+        setAlertMessage('Hubo un problema al enviar el mensaje. Por favor intenta de nuevo.');
+        setShowAlert(true);
+      }
+    } catch (error) {
+      setAlertType('danger');
+      setAlertMessage('Error de conexión. Por favor intenta de nuevo.');
+      setShowAlert(true);
+    } finally {
+      setLoading(false);
+      setTimeout(() => setShowAlert(false), 8000);
+    }
   };
 
   return (
@@ -88,9 +124,9 @@ const ContactSection = () => {
           <div className="col-lg-7">
             <Card className="p-sm-4 p-2">
               {showAlert && (
-                <div className="alert alert-success alert-dismissible fade show d-flex align-items-center gap-2" role="alert">
-                  <FaCheckCircle />
-                  <div>¡Mensaje enviado con éxito! Te responderé lo antes posible.</div>
+                <div className={`alert alert-${alertType} alert-dismissible fade show d-flex align-items-center gap-2`} role="alert">
+                  {alertType === 'success' ? <FaCheckCircle /> : <FaExclamationCircle />}
+                  <div>{alertMessage}</div>
                   <button type="button" className="btn-close" onClick={() => setShowAlert(false)} aria-label="Close"></button>
                 </div>
               )}
@@ -99,22 +135,29 @@ const ContactSection = () => {
                 <div className="row g-3">
                   <div className="col-md-6">
                     <label htmlFor="name" className="form-label small fw-medium">Nombre Completo</label>
-                    <input type="text" className="form-control form-control-lg custom-input" id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Ej: Juan Pérez" />
+                    <input type="text" className="form-control form-control-lg custom-input" id="name" name="name" value={formData.name} onChange={handleChange} required placeholder="Ej: Juan Pérez" disabled={loading} />
                   </div>
                   <div className="col-md-6">
                     <label htmlFor="email" className="form-label small fw-medium">Correo Electrónico</label>
-                    <input type="email" className="form-control form-control-lg custom-input" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="ejemplo@correo.com" />
+                    <input type="email" className="form-control form-control-lg custom-input" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="ejemplo@correo.com" disabled={loading} />
                   </div>
                   <div className="col-12">
                     <label htmlFor="subject" className="form-label small fw-medium">Asunto</label>
-                    <input type="text" className="form-control form-control-lg custom-input" id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="¿De qué trata tu mensaje?" />
+                    <input type="text" className="form-control form-control-lg custom-input" id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="¿De qué trata tu mensaje?" disabled={loading} />
                   </div>
                   <div className="col-12">
                     <label htmlFor="message" className="form-label small fw-medium">Mensaje</label>
-                    <textarea className="form-control custom-input" id="message" name="message" rows="5" value={formData.message} onChange={handleChange} required placeholder="Escribe tu mensaje aquí..."></textarea>
+                    <textarea className="form-control custom-input" id="message" name="message" rows="5" value={formData.message} onChange={handleChange} required placeholder="Escribe tu mensaje aquí..." disabled={loading}></textarea>
                   </div>
                   <div className="col-12 mt-4">
-                    <Button type="submit" label="Enviar Mensaje" icon={<FaPaperPlane />} size="lg" className="w-100 rounded-3 shadow-sm" />
+                    <Button 
+                      type="submit" 
+                      label={loading ? "Enviando..." : "Enviar Mensaje"} 
+                      icon={loading ? <FaSpinner className="animate-spin" /> : <FaPaperPlane />} 
+                      size="lg" 
+                      className="w-100 rounded-3 shadow-sm" 
+                      disabled={loading} 
+                    />
                   </div>
                 </div>
               </form>
@@ -152,6 +195,14 @@ const ContactSection = () => {
           .custom-input::placeholder {
             color: var(--color-text-secondary);
             opacity: 0.6;
+          }
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          .animate-spin {
+            animation: spin 1s linear infinite;
+            display: inline-block;
           }
         `}
       </style>
