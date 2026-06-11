@@ -15,6 +15,15 @@ const ProjectsSection = () => {
 
   const projects = [
     {
+      title: "JAFFA Cowork",
+      description: "Aplicación Full Stack desarrollada con arquitectura MERN para la administración de espacios de coworking. Permite gestionar usuarios, reservas, pagos, facturación y soporte mediante una plataforma moderna y escalable.",
+      stack: ["MongoDB", "Express", "React", "Node.js"],
+      githubUrl: "https://github.com/Andreadavj/Sistema-de-gestion-de-co-working",
+      liveUrl: "https://sistema-de-gestion-de-co-working.vercel.app/",
+      image: jaffaImg,
+      status: "completed"
+    },
+    {
       title: "Virtual Pet",
       description: "Aplicación Full Stack para la gestión de mascotas virtuales. Permite crear, editar, visualizar y administrar mascotas mediante una interfaz interactiva desarrollada con JavaScript puro y una API REST.",
       stack: ["JavaScript", "HTML/CSS", "API REST", "Node.js"],
@@ -39,15 +48,6 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/Andreadavj/backend-LikeMel",
       liveUrl: "",
       image: defaultBackendImg,
-      status: "completed"
-    },
-    {
-      title: "JAFFA Cowork",
-      description: "Aplicación Full Stack desarrollada con arquitectura MERN para la administración de espacios de coworking. Permite gestionar usuarios, reservas, pagos, facturación y soporte mediante una plataforma moderna y escalable.",
-      stack: ["MongoDB", "Express", "React", "Node.js"],
-      githubUrl: "https://github.com/Andreadavj/Sistema-de-gestion-de-co-working",
-      liveUrl: "https://sistema-de-gestion-de-co-working.vercel.app/",
-      image: jaffaImg,
       status: "completed"
     }
   ];
